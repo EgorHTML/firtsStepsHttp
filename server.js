@@ -5,24 +5,25 @@ const fs = require("fs")
 
 
 
+
 const server = http.createServer((req,res)=>{
+   
+  
+if (req.url ==="/") {     
+        postStatickFilesToClient("index.html","text/html",res)  
+}else if(req.url==="/style.css" || req.url==="/index.js"){
+    postStatickFilesToClient(req.url,getContentType(req.url),res)
+    // postStatickFilesToClient('data.json',"application/json",res)
     
-    if (req.url ==="/") {
-        postStatickFilesToClient("index.html","text/html",res)
-        console.log(req.url)
-}else if(req.url==="/data.json"){
-    console.log(req.url)
+}else if(req.url =="/data.json"){
     postStatickFilesToClient('data.json',"application/json",res)
-    
 }else{
-    console.log(req.url)
     postStatickFilesToClient(req.url,getContentType(req.url),res)
 }
 
 
 
 }).listen(8888)
-
 
 
 function postStatickFilesToClient(url,type,res){
