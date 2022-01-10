@@ -1,3 +1,22 @@
+*{
+    padding: 0;
+    margin: 0;
+}
 body{
+    
     background-color: rgb(156, 181, 182);
+}
+.title{
+    
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+.body__form{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+.subBtn{
+    margin-top: 10px;
 }
